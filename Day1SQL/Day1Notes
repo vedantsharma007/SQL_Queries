@@ -1,0 +1,68 @@
+# today I learned basics of sql
+1.basic syntax
+2.create , alter , drop (ddl commands)
+3.update , insert (dml commands)
+4.select (dql command)
+5.where and having
+6.JOINS (inner,outer,left,right)
+7.cross join
+8.Aggregate functions
+9.Group by
+
+
+# Question:1 What is the difference between WHERE and HAVING?
+
+Explain:
+
+When each is executed
+
+Why HAVING cannot replace WHERE
+
+Example use case
+
+Answer:both where and having is used for filteration ,only difference is that where is used before group by while 
+       having is used after group by
+
+       HAVING works on aggregated results.
+
+       If you use HAVING without GROUP BY, it behaves differently.
+
+       Using HAVING instead of WHERE can reduce performance    
+
+#Question 2:Difference between COUNT(*) and COUNT(column_name)?
+
+What happens if column contains NULLs?
+
+Answer: COUNT(*) Counts the total number of rows in the result set or a table.
+        Counts the number of non-NULL values in the specified column.
+
+# Question:2 In LC 183, why do we check o.id IS NULL instead of o.customerId IS NULL?
+
+Answer:we check o.id is null because 
+       id is the primary key of Orders.
+
+       zIf it is NULL → no matching order exists.
+
+# Question:3 Why is LIMIT dangerous in some interview problems?
+
+When is it appropriate? When is it wrong?
+
+Answer: because it can be used to hide a lack of understanding of data integrity, sorting, or complex join logic.
+
+# Question:4 What happens if there are duplicate keys in JOIN?
+
+How does it affect row count?
+
+Answer: the duplicate rows will be included in result.
+        row count increases as duplicate rows also included.
+
+# Question:5 In LC 182 (duplicate emails), which approach is more efficient:
+
+GROUP BY
+
+Self join
+
+Answer: I think group by is more efficient 
+        GROUP BY scans table once
+        Self join compares rows against each other
+        Self join increases computation cost
